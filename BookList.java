@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class BookList {
     private String name;
 
@@ -72,9 +74,49 @@ public class BookList {
     public void details(){
         for (int i=0; i<book.length;i++){
             if(book[i]!=null){
-                System.out.println("id-"+book[i].getID()+"  Title-"+book[i].getBook_title());
+                System.out.println(book[i]);
             }
         }
     }
-    public void
+    public Book search(String name) {
+        Book findBook = null;
+        if (!(book == null)) {
+            for (int i = 0; i < index; i++) {
+                if (book[i] != null && book[i].getBook_title().equals(name)) {
+                    findBook = book[i];
+                    break;
+                }
+            }
+        }
+        return findBook;
+    }
+    public void modify(String name,int rank){
+        Book b=search(name);
+        if(!(b==null)){
+            b.setRank(rank);
+        }
+
+    }
+
+    public void sortArray(){
+        for (int i = 0; i < index ; i++) {
+            for (int j = 0; j < index- i ; j++) {
+                if (book[j].getRank() > book[j + 1].getRank()) {
+
+                    Book temp = book[j];
+                    book[j] = book[j + 1];
+                    book[j + 1] = temp;
+                }
+            }
+        }
+        for (int i = 0; i <=index; i++) {
+                book[i].setID(i+1 );
+        }
+
+
+
+    }
+
+
+
 }

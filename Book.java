@@ -8,12 +8,12 @@ public class Book {
     private String bookStatus;
 
 
-    public Book(int ID, String book_title, String author, int rank, String bookStatus) {
+    public Book(int ID, String book_title, String author, int rank) {
         this.ID = ID;
         Book_title = book_title;
         Author = author;
         Rank = rank;
-        this.bookStatus = bookStatus;
+        this.bookStatus =null;
     }
 
 
@@ -56,5 +56,28 @@ public class Book {
 
     public void setBookStatus(String bookStatus) {
         this.bookStatus = bookStatus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book book)) return false;
+        return getID() == book.getID() && getRank() == book.getRank() && Objects.equals(getBook_title(), book.getBook_title()) && Objects.equals(getAuthor(), book.getAuthor()) && Objects.equals(getBookStatus(), book.getBookStatus());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getID(), getBook_title(), getAuthor(), getRank(), getBookStatus());
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "ID=" + ID +
+                ", Book_title='" + Book_title + '\'' +
+                ", Author='" + Author + '\'' +
+                ", Rank=" + Rank +
+                ", bookStatus='" + bookStatus + '\'' +
+                '}';
     }
 }

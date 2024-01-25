@@ -1,21 +1,21 @@
 public class driver {
     public static void main(String[] args) {
-        Book b1=new Book(23,"isuru","isuru",34,"read");
-        Book b2=new Book(24,"isur","isuru",34,"read");
-        Book b3=new Book(25,"isu","isuru",34,"read");
-        Book b4=new Book(26,"is","isuru",34,"read");
+        BookList myBookList = new BookList("My BookList");
 
-        BookList nam=new BookList("education");
-        nam.insert(b1);
-        nam.insert(b2);
-        nam.insert(b3);
-        nam.insert(b4);
+        // Insert book details to the book list
+        myBookList.insert(new Book(0, "Uncanny Valley", "Anna Wiener", 10));
+        myBookList.insert(new Book(0, "Weather", "Jenny Offil", 4));
+        myBookList.insert(new Book(0, "Long Bright River", "Liz Moore", 18));
+        myBookList.insert(new Book(0, "The Glass Hotel", "Emily St & John Mandel", 2));
+        myBookList.insert(new Book(0, "Afterlife", "Julia Alvarez", 14));
 
-        nam.details();
+        myBookList.modify("Long Bright River",1);
+        myBookList.details();
+        myBookList.sortArray();
 
-        nam.delete(1);
 
-        nam.details();
+
+
 
 
 
